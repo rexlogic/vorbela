@@ -26,7 +26,8 @@ app.get('/', function (req, res) {
 
 app.post('/', (req, res) => {
   console.log(req.body.nlp.source)
-
+  console.log(getWeather(location))
+  
   res.send({
     replies: [{
       type: 'text',
