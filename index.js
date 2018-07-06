@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const axios = require('axios')
 const app = express()
 
-const getWeather = (location) => {
+const getWeather = ('Slatina') => {
   const params = {
     q: location,
     APPID: process.env.OWM_APIK,
