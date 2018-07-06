@@ -8,6 +8,7 @@ const getWeather = (location) => {
     q: location,
     APPID: process.env.OWM_APIK,
     units: 'metric',
+    lang: 'ro'
   }
 
   return axios.get('https://api.openweathermap.org/data/2.5/weather', { params })
