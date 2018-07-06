@@ -5,6 +5,10 @@ const app = express()
 const port = 5000 
 app.use(bodyParser.json()) 
 
+app.get('/', function (req, res) {
+  res.send('vremea webhook.')
+}
+
 app.post('/', (req, res) => {
  if (req.body.conversation.skill == 'vremea') {
   console.log(req.body.nlp.source)
@@ -17,7 +21,7 @@ app.post('/', (req, res) => {
     conversation: {
       memory: { key: 'value' }
     }
-  })}
+  })
 })
 
 app.post('/errors', (req, res) => {
