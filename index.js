@@ -10,7 +10,6 @@ app.get('/', function (req, res) {
 }
 
 app.post('/', (req, res) => {
- if (req.body.conversation.skill == 'vremea') {
   console.log(req.body.nlp.source)
 
   res.send({
