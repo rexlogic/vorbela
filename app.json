@@ -1,7 +1,7 @@
 {
   "name": "Start on Heroku: Node.js",
   "description": "webhook",
-  "repository": "https://github.com/heroku/vremea",
+  "repository": "https://github.com/rexlogic/vremea",
   "keywords": ["ai", "webhook"],
   "image": "heroku/nodejs"
 }
