@@ -25,12 +25,12 @@ app.get('/', function (req, res) {
 })
 
 app.post('/', (req, res) => {
-  console.log(req.body)
+  console.log(req.body.nlp.source)
 
   res.send({
     replies: [{
       type: 'text',
-      content: 'Vremea în ' + location + ': ' + getWeather.data,
+      content: 'Vremea în ' + location + ': ' + data,
     }], 
     conversation: {
       memory: { key: 'value' }
