@@ -1,8 +1,9 @@
 # vremea webhook.
 
 
-    [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
+<a href="https://heroku.com/deploy?template=https://github.com/rexlogic/vremea">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+</a>
 
 
 
