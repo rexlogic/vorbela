@@ -30,7 +30,7 @@ app.post('/', (req, res) => {
   res.send({
     replies: [{
       type: 'text',
-      content: 'Vremea în ' + location + ':' + getWeather,
+      content: 'Vremea în ' + location + ': ' + getWeather.data,
     }], 
     conversation: {
       memory: { key: 'value' }
