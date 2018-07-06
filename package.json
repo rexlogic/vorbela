@@ -1,0 +1,27 @@
+{
+  "name": "vremea",
+  "version": "1.0.0",
+  "description": "webhook",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+  },
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rexlogic/vremea.git"
+  },
+  "keywords": [
+    "ai",
+    "webhook"
+  ],
+  "license": "MIT"
+}
