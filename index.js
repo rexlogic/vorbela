@@ -5,7 +5,7 @@ const app = express()
 
 var location = 'Slatina'
 
-function getWeather (location) => {
+function getWeather (location) {
   const params = {
     q: location,
     APPID: process.env.OWM_APIK,
