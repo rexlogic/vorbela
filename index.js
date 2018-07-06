@@ -5,7 +5,7 @@ const app = express()
 
 var location = 'Slatina'
 
-function getWeather (location) {
+const getWeather = location => {
   const params = {
     q: location,
     APPID: process.env.OWM_APIK,
@@ -30,7 +30,7 @@ app.post('/', (req, res) => {
   res.send({
     replies: [{
       type: 'text',
-      content: 'Vremea în ' + location + ': ' + getWeather(location),
+      content: 'Vremea în ' + location + ': ' + getWeather,
     }], 
     conversation: {
       memory: { key: 'value' }
