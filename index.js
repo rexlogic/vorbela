@@ -3,7 +3,8 @@ const bodyParser = require('body-parser')
 
 const app = express() 
 const port = 5000 
-app.use(bodyParser.json()) 
+app.use(bodyParser.json())
+app.set('port', (process.env.PORT || 5000))
 
 app.get('/', function (req, res) {
   res.send('vremea webhook.')
@@ -28,6 +29,6 @@ app.post('/errors', (req, res) => {
   res.send() 
 }) 
 
-app.listen(port, () => { 
+app.listen(app.get('port'), () => { 
   console.log('Server is running on port 5000') 
 })
