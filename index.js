@@ -12,14 +12,15 @@ app.get('/', function (req, res) {
 
 app.post('/', (req, res) => {
   console.log(req.body)
+  let city = ''
   let apiKey = process.env.OWM_APIK
   if (req.body.nlp.entities.location_ro == undefined) {
     console.log('oras nedefinit')
-    let city = 'București,ro'
+    city = 'București,ro'
   }
   else {
     console.log(req.body.nlp.entities.location_ro[0])
-    let city = req.body.nlp.entities.location_ro[0] + ',ro'
+    city = req.body.nlp.entities.location_ro[0] + ',ro'
   }
   let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city + '&units=metric&appid=' + apiKey
   console.log(url)
