@@ -12,14 +12,18 @@ app.get('/', function (req, res) {
 
 app.post('/', (req, res) => {
   console.log(req.body)
-  let city = 'bucurești,ro'
+  let city = ''
+  let cityraw= ''
   let apiKey = process.env.OWM_APIK
   if (req.body.nlp.entities.location_ro === undefined) {
     console.log('oras nedefinit')
+    city = 'bucurești,ro'
+    cityraw = 'București'
   }
   else {
     console.log(req.body.nlp.entities.location_ro[0])
     city = req.body.nlp.entities.location_ro[0].value + ',ro'
+    cityraw = req.body.nlp.entities.location_ro[0].raw
   }
   let url = encodeURI('http://api.openweathermap.org/data/2.5/weather?q='+ city + '&lang=ro&units=metric&appid=' + apiKey)
   console.log(url)
@@ -40,14 +44,14 @@ app.post('/', (req, res) => {
         res.send({
           replies: [{
             type: 'text',
-            content: 'În ce localitate vrei să știi cum e vremea?',
+            content: 'Vremea este diferită de la o localitate la alta.',
           }], 
           conversation: {
             memory: { key: 'value' }
           }
         })
       } else {
-        let weatherText = 'Sunt ' + wh.main.temp + '°C și ' + wh.weather[0].description + ' în ' + req.body.nlp.entities.location_ro[0].raw + '.'
+        let weatherText = 'Sunt ' + wh.main.temp + '°C și ' + wh.weather[0].description + ' în ' + cityraw + '.'
          res.send({
           replies: [{
             type: 'text',
