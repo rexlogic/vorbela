@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const request = require('request')
 const app = express()
 
 app.use(bodyParser.json())
@@ -11,16 +12,47 @@ app.get('/', function (req, res) {
 
 app.post('/', (req, res) => {
   console.log(req.body.nlp.source)
-  
-  res.send({
-    replies: [{
-      type: 'text',
-      content: 'Vremea în ' + ': ',
-    }], 
-    conversation: {
-      memory: { key: 'value' }
+  let city = 'Slatina'
+  let apiKey = process.env.OWM_APIK
+  let url = 'http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}'
+
+  request(url, function (err, response, body) {
+    if(err){
+        res.send({
+          replies: [{
+            type: 'text',
+            content: 'eroare',
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })
+    } else {
+      let weather = JSON.parse(body)
+      if(weather.main == undefined){
+        res.send({
+          replies: [{
+            type: 'text',
+            content: 'eroare',
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })
+      } else {
+        let weatherText = 'Sunt ${weather.main.temp} de grade în ${weather.name}!'
+         res.send({
+          replies: [{
+            type: 'text',
+            content: weatherText,
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })      
+      }
     }
-  })
+})
 })
 
 app.post('/errors', (req, res) => {
