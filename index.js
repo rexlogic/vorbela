@@ -6,7 +6,7 @@ app.use(bodyParser.json())
 app.set('port', (process.env.PORT || 5000))
 
 app.get('/', function (req, res) {
-  res.send('<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><meta charset="utf-8"><title>Vremea webhook</title><style media="screen">html,body,div {	margin: 0; padding: 0; } html,body { height: 100%; overflow: hidden; } div {	width: 100%;	height: 100%;	border: 0; }</style></head><body><div>VREMEA</div></body></html>')
+  res.send('<!DOCTYPE html><html><head><title>Vremea webhook</title></head><body bgcolor="#ccddff"><div style="text-align:center;">VREMEA</div></body></html>')
 })
 
 app.post('/', (req, res) => {
