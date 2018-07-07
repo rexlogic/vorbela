@@ -6,7 +6,7 @@ app.use(bodyParser.json())
 app.set('port', (process.env.PORT || 5000))
 
 app.get('/', function (req, res) {
-  res.send('<!DOCTYPE html><html><body background="./bg.jpg"><div>VREMEA</div></body></html>')
+  res.send('<!DOCTYPE html><html><body background="https://github.com/rexlogic/vremea/blob/master/bg.jpg"><div>VREMEA</div></body></html>')
 })
 
 app.post('/', (req, res) => {
