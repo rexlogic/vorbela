@@ -20,7 +20,7 @@ app.post('/', (req, res) => {
   }
   else {
     console.log(req.body.nlp.entities.location_ro[0])
-    city = req.body.nlp.entities.location_ro[0] + ',ro'
+    city = req.body.nlp.entities.location_ro[0].value + ',ro'
   }
   let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city + '&units=metric&appid=' + apiKey
   console.log(url)
