@@ -15,13 +15,13 @@ app.post('/', (req, res) => {
   let city = 'Slatina'
   let apiKey = process.env.OWM_APIK
   let url = 'http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}'
-
+  console.log(url)
   request(url, function (err, response, body) {
     if(err){
         res.send({
           replies: [{
             type: 'text',
-            content: 'eroare',
+            content: 'eroare url',
           }], 
           conversation: {
             memory: { key: 'value' }
@@ -33,7 +33,7 @@ app.post('/', (req, res) => {
         res.send({
           replies: [{
             type: 'text',
-            content: 'eroare',
+            content: 'eroare oras',
           }], 
           conversation: {
             memory: { key: 'value' }
