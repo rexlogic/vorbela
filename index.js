@@ -6,7 +6,7 @@ app.use(bodyParser.json())
 app.set('port', (process.env.PORT || 5000))
 
 app.get('/', function (req, res) {
-  res.send('<!DOCTYPE html><html><body bgcolor="#ADD8E6"><div style="text-align:center; valign:middle;">VREMEA</div></body></html>')
+  res.send('<!DOCTYPE html><html><body bgcolor="#ADD8E6"><div style="text-align:center; min-height: 10em; display: table-cell; vertical-align: middle ;">VREMEA</div></body></html>')
 })
 
 app.post('/', (req, res) => {
