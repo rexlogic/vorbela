@@ -15,7 +15,7 @@ app.post('/', (req, res) => {
   let city = 'bucurești'
   let apiKey = process.env.OWM_APIK
 
-  let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city + '&lang=ro&units=metric&appid=' + apiKey
+  let url = encodeURI('http://api.openweathermap.org/data/2.5/weather?q='+ city + '&lang=ro&units=metric&appid=' + apiKey)
   console.log(url)
   request(url, function (err, response, body) {
     if(err){
