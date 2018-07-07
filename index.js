@@ -14,7 +14,7 @@ app.post('/', (req, res) => {
   console.log(req.body.nlp.source)
   let city = 'Slatina'
   let apiKey = process.env.OWM_APIK
-  let url = 'http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}'
+  let url = 'http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={apiKey}'
   console.log(url)
   request(url, function (err, response, body) {
     if(err){
@@ -40,7 +40,7 @@ app.post('/', (req, res) => {
           }
         })
       } else {
-        let weatherText = 'Sunt ${weather.main.temp} de grade în ${weather.name}!'
+        let weatherText = 'Sunt {weather.main.temp} de grade în {weather.name}!'
          res.send({
           replies: [{
             type: 'text',
