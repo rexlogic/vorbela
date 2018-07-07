@@ -14,7 +14,7 @@ app.post('/', (req, res) => {
   console.log(req.body)
   let city = 'bucurești,ro'
   let apiKey = process.env.OWM_APIK
-  if (req.body.nlp.entities.location_ro == undefined) {
+  if (req.body.nlp.entities.location_ro === undefined) {
     console.log('oras nedefinit')
   }
   else {
