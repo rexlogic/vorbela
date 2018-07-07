@@ -1,18 +1,18 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const OpenWeatherMapHelper = require("openweathermap-node")
+const OpenWeatherMapHelper = require('openweathermap-node')
 const app = express()
 const helper = new OpenWeatherMapHelper(
     {
         APPID: process.env.OWM_APIK,
-        units: "metric"
+        units: 'metric'
     }
 )
 
 app.use(bodyParser.json())
 app.set('port', (process.env.PORT || 5000))
 
-helper.getCurrentWeatherByCityName("Slatina", (err, currentWeather) => {
+helper.getCurrentWeatherByCityName('Slatina', (err, currentWeather) => {
     if(err){
         console.log(err);
     }
