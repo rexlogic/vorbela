@@ -6,7 +6,7 @@ app.use(bodyParser.json())
 app.set('port', (process.env.PORT || 5000))
 
 app.get('/', function (req, res) {
-  res.send('<html><body><div>vremea</div></body></html>')
+  res.send('<!DOCTYPE html><html><body><div>vremea</div></body></html>')
 })
 
 app.post('/', (req, res) => {
