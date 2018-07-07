@@ -6,7 +6,7 @@ app.use(bodyParser.json())
 app.set('port', (process.env.PORT || 5000))
 
 app.get('/', function (req, res) {
-  res.send('<!DOCTYPE html><html><body background="http://oi65.tinypic.com/2cfed5t.jpg"><div>VREMEA</div></body></html>')
+  res.send('<!DOCTYPE html><html><body background="./bg.jpg"><div>VREMEA</div></body></html>')
 })
 
 app.post('/', (req, res) => {
