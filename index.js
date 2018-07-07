@@ -21,7 +21,7 @@ app.post('/', (req, res) => {
         res.send({
           replies: [{
             type: 'text',
-            content: 'eroare url',
+            content: 'Nu știu cum e vremea acum.',
           }], 
           conversation: {
             memory: { key: 'value' }
@@ -33,14 +33,14 @@ app.post('/', (req, res) => {
         res.send({
           replies: [{
             type: 'text',
-            content: 'eroare oras',
+            content: 'În ce localitate vrei să știi cum e vremea?',
           }], 
           conversation: {
             memory: { key: 'value' }
           }
         })
       } else {
-        let weatherText = 'Sunt ' + weather.main.temp + ' de grade în ' + weather.name + '!'
+        let weatherText = 'Sunt ' + weather.main.temp + ' grade în ' + weather.name + '!'
          res.send({
           replies: [{
             type: 'text',
