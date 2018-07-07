@@ -12,6 +12,7 @@ app.get('/', function (req, res) {
 
 app.post('/', (req, res) => {
   console.log(req.body)
+  console.log(req.body.nlp.entities.location_ro[0])
   let city = 'Slatina'
   let apiKey = process.env.OWM_APIK
   let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city + '&units=metric&appid=' + apiKey
