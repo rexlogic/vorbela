@@ -47,7 +47,7 @@ app.post('/', (req, res) => {
           }
         })
       } else {
-        let weatherText = 'Sunt ' + wh.main.temp + ' grade în ' + city + '.'
+        let weatherText = 'Sunt ' + wh.main.temp + ' grade în ' + wh.name + '.'
          res.send({
           replies: [{
             type: 'text',
