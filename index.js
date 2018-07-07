@@ -22,7 +22,7 @@ app.post('/', (req, res) => {
     console.log(req.body.nlp.entities.location_ro[0])
     city = req.body.nlp.entities.location_ro[0].value + ',ro'
   }
-  let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city + '&units=metric&lang=ro&appid=' + apiKey
+  let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city + '&lang=ro&units=metric&appid=' + apiKey
   console.log(url)
   request(url, function (err, response, body) {
     if(err){
