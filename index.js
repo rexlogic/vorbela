@@ -48,8 +48,7 @@ app.post('/', (req, res) => {
           }
         })
       } else {
-        console.log(weather)
-        let weatherText = 'Sunt ' + weather.main.temp + '°C în ' + weather.name + ', și '
+        let weatherText = 'Sunt ' + weather.main.temp + ' grade în ' + weather.name + ', și '
          res.send({
           replies: [{
             type: 'text',
