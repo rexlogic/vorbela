@@ -12,14 +12,15 @@ app.get('/', function (req, res) {
 
 app.post('/', (req, res) => {
   console.log(req.body)
-  if (req.body.nlp.entities.location_ro === undefined) {
+  let apiKey = process.env.OWM_APIK
+  if (req.body.nlp.entities.location_ro == undefined) {
     console.log('oras nedefinit')
+    let city = 'București,ro'
   }
   else {
     console.log(req.body.nlp.entities.location_ro[0])
+    let city = req.body.nlp.entities.location_ro[0] + ',ro'
   }
-  let city = 'Slatina'
-  let apiKey = process.env.OWM_APIK
   let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city + '&units=metric&appid=' + apiKey
   console.log(url)
   request(url, function (err, response, body) {
@@ -46,7 +47,7 @@ app.post('/', (req, res) => {
           }
         })
       } else {
-        let weatherText = 'Sunt ' + weather.main.temp + ' grade în ' + weather.name + '!'
+        let weatherText = 'Sunt ' + weather.main.temp + '°C în ' + weather.name + 'și ' + weather.main.description + '.'
          res.send({
           replies: [{
             type: 'text',
