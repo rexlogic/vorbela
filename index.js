@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
 
 app.post('/', (req, res) => {
   console.log(req.body)
-  let city = 'bucurești,ro'
+  let city = 'bucurești'
   let apiKey = process.env.OWM_APIK
 
   let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city + '&lang=ro&units=metric&appid=' + apiKey
