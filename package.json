@@ -10,6 +10,7 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "request": "^2.82.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.3"
   },
