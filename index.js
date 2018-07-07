@@ -6,7 +6,7 @@ app.use(bodyParser.json())
 app.set('port', (process.env.PORT || 5000))
 
 app.get('/', function (req, res) {
-  res.send('<!DOCTYPE html><html><head><title>Vremea webhook</title></head><body bgcolor="#ccddff"><div style="text-align:center;">VREMEA</div></body></html>')
+  res.send('<!DOCTYPE html><html><head><title>Vremea webhook</title></head><body bgcolor="#ccddff"><div style="font-weight:bold; text-align:center;">VREMEA</div></body></html>')
 })
 
 app.post('/', (req, res) => {
