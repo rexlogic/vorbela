@@ -14,10 +14,10 @@ app.set('port', (process.env.PORT || 5000))
 
 helper.getCurrentWeatherByCityName('Slatina', (err, currentWeather) => {
     if(err){
-        console.log(err);
+        console.log(err)
     }
     else{
-        console.log(currentWeather);
+        console.log(currentWeather)
     }
 })
 
