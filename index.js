@@ -12,17 +12,16 @@ app.get('/', function (req, res) {
 
 app.post('/', (req, res) => {
   console.log(req.body)
-  let city = ''
+  let city = 'bucurești,ro'
   let apiKey = process.env.OWM_APIK
   if (req.body.nlp.entities.location_ro == undefined) {
     console.log('oras nedefinit')
-    city = 'București,ro'
   }
   else {
     console.log(req.body.nlp.entities.location_ro[0])
     city = req.body.nlp.entities.location_ro[0].value + ',ro'
   }
-  let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city + '&lang=ro&units=metric&appid=' + apiKey
+  let url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city + '&units=metric&appid=' + apiKey
   console.log(url)
   request(url, function (err, response, body) {
     if(err){
@@ -48,7 +47,7 @@ app.post('/', (req, res) => {
           }
         })
       } else {
-        let weatherText = 'Sunt ' + weather.main.temp + ' grade în ' + weather.name + ', și '
+        let weatherText = 'Sunt ' + weather.main.temp + ' grade în ' + weather.name + '.'
          res.send({
           replies: [{
             type: 'text',
