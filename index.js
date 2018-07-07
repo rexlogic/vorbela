@@ -35,8 +35,8 @@ app.post('/', (req, res) => {
           }
         })
     } else {
-      let weather = JSON.parse(body)
-      if(weather.main == undefined){
+      let wh = JSON.parse(body)
+      if(wh.main == undefined){
         res.send({
           replies: [{
             type: 'text',
@@ -47,7 +47,7 @@ app.post('/', (req, res) => {
           }
         })
       } else {
-        let weatherText = 'Sunt ' + weather.main.temp + ' grade în ' + weather.name + '.'
+        let weatherText = 'Sunt ' + wh.main.temp + ' grade în ' + city + '.'
          res.send({
           replies: [{
             type: 'text',
