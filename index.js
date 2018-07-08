@@ -10,6 +10,19 @@ app.get('/', function (req, res) {
   res.send('<!DOCTYPE html><html><head><title>Vorbela webhooks</title></head><body bgcolor="#ccddff"><div style="font-weight:bold; text-align:center;">VORBELA</div></body></html>')
 })
 
+app.post('/zodiac', (req, res) => {
+  console.log(req.body)
+  res.send({
+   replies: [{
+     type: 'text',
+     content: 'Toate zodiile sunt norocoase azi.',
+   }], 
+   conversation: {
+    memory: { key: 'value' }
+   }
+  })
+})
+
 app.post('/stiri', (req, res) => {
   console.log(req.body)
   res.send({
