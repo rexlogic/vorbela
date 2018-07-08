@@ -51,7 +51,7 @@ app.post('/', (req, res) => {
           }
         })
       } else {
-        let weatherText = 'Sunt ' + wh.main.temp + '°C și ' + wh.weather[0].description + ' în ' + cityraw + '.'
+        let weatherText = 'Sunt ' + Math.round(wh.main.temp) + '°C și ' + wh.weather[0].description + ' în ' + cityraw + '.'
          res.send({
           replies: [{
             type: 'text',
