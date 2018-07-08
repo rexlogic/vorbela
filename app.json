@@ -1,7 +1,7 @@
 {
-  "name": "vremeawh",
-  "description": "webhook",
-  "repository": "https://github.com/rexlogic/vremea",
+  "name": "vorbela",
+  "description": "webhooks",
+  "repository": "https://github.com/rexlogic/vorbela",
   "keywords": ["ai", "webhook"],
   "image": "heroku/nodejs"
 }
