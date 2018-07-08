@@ -1,7 +1,7 @@
 {
-  "name": "vremea",
+  "name": "vorbela",
   "version": "1.0.0",
-  "description": "webhook",
+  "description": "webhooks",
   "engines": {
     "node": "8.1.4"
   },
@@ -17,7 +17,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rexlogic/vremea.git"
+    "url": "git+https://github.com/rexlogic/vorbela.git"
   },
   "keywords": [
     "ai",
