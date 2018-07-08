@@ -2,7 +2,7 @@
 
 - meteo
 - știri
-- zodiac
+- horoscop
 
 <!--
 <a href="https://heroku.com/deploy?template=https://github.com/rexlogic/vremea">
