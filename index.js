@@ -15,7 +15,7 @@ app.post('/stiri', (req, res) => {
   res.send({
    replies: [{
      type: 'text',
-     content: 'Nu știu cum e vremea acum.',
+     content: 'Știrile de azi sunt învechite.',
    }], 
    conversation: {
     memory: { key: 'value' }
