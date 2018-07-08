@@ -10,6 +10,19 @@ app.get('/', function (req, res) {
   res.send('<!DOCTYPE html><html><head><title>Vorbela webhooks</title></head><body bgcolor="#ccddff"><div style="font-weight:bold; text-align:center;">VORBELA</div></body></html>')
 })
 
+app.post('/stiri', (req, res) => {
+  console.log(req.body)
+  res.send({
+   replies: [{
+     type: 'text',
+     content: 'Nu știu cum e vremea acum.',
+   }], 
+   conversation: {
+    memory: { key: 'value' }
+   }
+  })
+})
+
 app.post('/meteo', (req, res) => {
   console.log(req.body)
   let city = ''
