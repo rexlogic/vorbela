@@ -44,15 +44,15 @@ app.post('/zodiac', (req, res) => {
   }
 
   let datazi = new Date()
-  let url = encodeURI('http://api.timezonedb.com/v2/get-time-zone?key=' + process.env.TZD_APIK + '&format=json&by=zone&zone=Europe/Bucharest')
-  request(url, function (err, response, body) {
+  let urlt = encodeURI('http://api.timezonedb.com/v2/get-time-zone?key=' + process.env.TZD_APIK + '&format=json&by=zone&zone=Europe/Bucharest')
+  request(urlt, function (err, response, body) {
     if(err){
       console.log('Date-time API unreachable.')
     } else {
       let dat = JSON.parse(body)
       if(dat.status === 'OK'){
         console.log('OK')
-        console.log(url)
+        console.log(urlt)
         datazi = dat.formatted
       } else {
         console.log('Date-time API error.')
@@ -61,10 +61,10 @@ app.post('/zodiac', (req, res) => {
   })
   console.log('Data Zi = ' + datazi)
   
-  url = encodeURI('https://horoscop.ournet.ro/api/reports.json?client=vorbela&period=D' + '20180709')
-  console.log(url)
+  let urlz = encodeURI('https://horoscop.ournet.ro/api/reports.json?client=vorbela&period=D' + '20180709')
+  console.log(urlz)
   console.log(req.body.nlp.entities)
-  request(url, function (err, response, body) {
+  request(urlz, function (err, response, body) {
     if(err){
         res.send({
           replies: [{
