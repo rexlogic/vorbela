@@ -31,18 +31,16 @@ app.post('/stiri', (req, res) => {
   
   if (!process.env.NEW_APIK) throw new Error('No news API Key specified.');
   let newsapi = new NewsAPI(process.env.NEW_APIK);
-   
-  newsapi.v2.topHeadlines({
+
+      it('Should return "ok" and a list of top headlines', function (done) {
+        newsapi.v2.topHeadlines({
           language: 'ro'
-        }, (err, res) => {
-          if (err) {
-            return done(err)
-          }
-          res.status.should.equal('ok')
-          should.exist(res.articles)
-          let textStiri = res.articles[0].title
+        }).then(resp => {
+          resp.status.should.equal('ok')
+          should.exist(resp.articles)
+          let textStiri = resp.articles[0].title
           done()
-  })
+        }).catch(done)
   
   res.send({
    replies: [{
