@@ -33,11 +33,26 @@ app.post('/stiri', (req, res) => {
     catTextraw = ' generale '
   }
   else {
-    console.log(req.body.nlp.entities.stiridin_ro[0])
     if (req.body.nlp.entities.stiridin_ro[0].value == 'sport' || req.body.nlp.entities.stiridin_ro[0].value == 'sportive') {
         catText = 'sports'
         catTextraw = ' din sport '
-        }
+    }
+    if (req.body.nlp.entities.stiridin_ro[0].value == 'bancare' || req.body.nlp.entities.stiridin_ro[0].value == 'afaceri') {
+        catText = 'business'
+        catTextraw = ' financiare '
+    }
+    if (req.body.nlp.entities.stiridin_ro[0].value == 'știință' || req.body.nlp.entities.stiridin_ro[0].value == 'științifice') {
+        catText = 'science'
+        catTextraw = ' din știință '
+    }
+    if (req.body.nlp.entities.stiridin_ro[0].value == 'mondene' || req.body.nlp.entities.stiridin_ro[0].value == 'bârfesc') {
+        catText = 'entertainment'
+        catTextraw = ' mondene '
+    }
+    if (req.body.nlp.entities.stiridin_ro[0].value == 'tehnice' || req.body.nlp.entities.stiridin_ro[0].value == 'tehnologice') {
+        catText = 'technology'
+        catTextraw = ' din tehnologie '
+    }
   }
   let url = encodeURI('https://newsapi.org/v2/top-headlines?country=ro&category=' + catText + '&apiKey='+ process.env.NEW_APIK)
   console.log(url)
