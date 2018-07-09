@@ -27,7 +27,7 @@ app.post('/stiri', (req, res) => {
   console.log(req.body)
   require('dotenv').config();
   let should = require('should')
-  let NewsAPI = require('news.js');
+  let NewsAPI = require('./news.js');
   
   if (!process.env.NEW_APIK) throw new Error('No news API Key specified.');
   let newsapi = new NewsAPI(process.env.NEW_APIK);
