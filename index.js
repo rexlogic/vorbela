@@ -27,6 +27,7 @@ app.post('/stiri', (req, res) => {
   console.log(req.body)
   let url = encodeURI('https://newsapi.org/v2/top-headlines?country=ro&category=sports&apiKey='+ process.env.NEW_APIK)
   console.log(url)
+  console.log(req.body.nlp.entities)
   request(url, function (err, response, body) {
     if(err){
         res.send({
