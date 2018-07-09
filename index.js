@@ -12,36 +12,7 @@ app.get('/', function (req, res) {
 
 app.post('/zodiac', (req, res) => {
   console.log(req.body)
-  let zod = 13
-  let zodTextraw = ' general '
-  if (req.body.nlp.entities.zodie_ro === undefined) {
-    console.log('zodie nedefinita')
-    zod = 13
-    zodTextraw = ' general '
-  }
-  else {
-    console.log(req.body.nlp.entities.zodie_ro[0])
-    if (req.body.nlp.entities.zodie_ro[0].value == 'berbec' || req.body.nlp.entities.zodie_ro[0].value == 'berbeci') {
-        zod = 1
-        zodTextraw = ' Berbec '
-    }
-    if (req.body.nlp.entities.zodie_ro[0].value == 'taur' || req.body.nlp.entities.zodie_ro[0].value == 'tauri') {
-        zod = 2
-        zodTextraw = ' Taur '
-    }
-    if (req.body.nlp.entities.zodie_ro[0].value == 'gemeni' || req.body.nlp.entities.zodie_ro[0].value == 'gemenilor') {
-        zod = 3
-        zodTextraw = ' Gemeni '
-    }
-    if (req.body.nlp.entities.zodie_ro[0].value == 'rac' || req.body.nlp.entities.zodie_ro[0].value == 'raci') {
-        zod = 4
-        zodTextraw = ' Rac '
-    }
-    if (req.body.nlp.entities.zodie_ro[0].value == 'leu' || req.body.nlp.entities.zodie_ro[0].value == 'lei') {
-        zod = 5
-        zodTextraw = ' Leu '
-    }
-  }
+
   let datazi = ''
   let urlt = encodeURI('http://api.timezonedb.com/v2/get-time-zone?key=' + process.env.TZD_APIK + '&format=json&by=zone&zone=Europe/Bucharest')
   request(urlt, function (err, response, body) {
@@ -59,54 +30,6 @@ app.post('/zodiac', (req, res) => {
     }
   })
   console.log('Data Zi = ' + datazi)
-  
-  let urlz = encodeURI('https://horoscop.ournet.ro/api/reports.json?client=vorbela&period=D' + '20180709')
-  console.log(urlz)
-  console.log(req.body.nlp.entities)
-  request(urlz, function (err, response, body) {
-    if(err){
-        res.send({
-          replies: [{
-            type: 'text',
-            content: 'Nu pot afla horoscopul de azi.',
-          }], 
-          conversation: {
-            memory: { key: 'value' }
-          }
-        })
-    } else {
-      let hor = JSON.parse(body)
-      if(hor.data.reports[0] === undefined){
-        res.send({
-          replies: [{
-            type: 'text',
-            content: 'E greu de aflat horoscopul în perioada asta.',
-          }], 
-          conversation: {
-            memory: { key: 'value' }
-          }
-        })
-      } else {
-        let horoText = hor.data.reports[0].text
-        
-        res.send({
-          replies: [
-            {
-              type: 'text',
-              content: 'Iată horoscopul zodiei ' + zodTextraw + 'de azi:',
-            },
-            {
-              type: 'text',
-              content: horoText
-            }
-          ], 
-          conversation: {
-            memory: { key: 'value' }
-          }
-        })    
-      }
-    }
-})
 })
 
 app.post('/stiri', (req, res) => {
