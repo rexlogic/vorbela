@@ -33,75 +33,6 @@ app.post('/stiri', (req, res) => {
   let newsapi = new NewsAPI(process.env.NEW_APIK);
   
   describe('NewsAPI', function () {
-  describe('V1', function () {
-    describe('Sources', function () {
-      it('should return "ok" and a list of sources', function (done) {
-        newsapi.sources().then(res => {
-          res.status.should.equal('ok');
-          should.exist(res.sources);
-          done();
-        }).catch(done);
-      });
-  
-      it('should return "ok" and a list of sources using a callback', function (done) {
-        newsapi.sources((err, res) => {
-          if (err) {
-            return done(err);
-          }
-          res.status.should.equal('ok');
-          should.exist(res.sources);
-          done();
-        });
-      });
-  
-      it('should return "ok" and a list of sources using a callback and empty params object', function (done) {
-        newsapi.sources({}, (err, res) => {
-          if (err) {
-            return done(err);
-          }
-          res.status.should.equal('ok');
-          should.exist(res.sources);
-          done();
-        });
-      });
-    });
-  
-    describe('Articles', function () {
-      it('should return "ok" and a list of articles for a valid source', function (done) {
-        const sourceId = 'buzzfeed';
-        newsapi.articles({
-          source: sourceId
-        }).then(articlesRes => {
-          articlesRes.status.should.equal('ok');
-          should.exist(articlesRes.articles);
-          done();
-        }).catch(done);
-      });
-  
-      it('should return "ok" and a list of articles for a valid source using a callback', function (done) {
-        const sourceId = 'buzzfeed';
-        newsapi.articles({
-          source: sourceId
-        }, (err, articlesRes) => {
-          if (err) {
-            return done(err);
-          }
-          articlesRes.status.should.equal('ok');
-          should.exist(articlesRes.articles);
-          done();
-        });
-      });
-
-      it('Should throw an error if no source is provided', function (done) {
-        newsapi.articles().then(res => {
-          done(new Error('Should have thrown an error'));
-        }).catch(err => {
-          done();
-        });
-      });
-    });
-  });
-
   describe('V2', function () {
     describe('sources', function () {
       it('Should return "ok" and a list of sources', function (done) {
@@ -194,10 +125,22 @@ app.post('/stiri', (req, res) => {
   });
 });
   
+  newsapi.v2.topHeadlines({
+          language: 'ro'
+        }, (err, res) => {
+          if (err) {
+            return done(err);
+          }
+          res.status.should.equal('ok');
+          should.exist(res.articles);
+          let textStiri = res.articles[0].title;
+          done();
+  });
+  
   res.send({
    replies: [{
      type: 'text',
-     content: 'Știrile de azi sunt învechite.',
+     content: textStiri,
    }], 
    conversation: {
     memory: { key: 'value' }
