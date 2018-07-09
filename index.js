@@ -52,18 +52,17 @@ app.post('/stiri', (req, res) => {
         })
       } else {
         let stiriText = []
-        for (i=0; i<st.totalResults, i++)
-        stiriText.push({
-                title: st.articles[i].source.name,
-                imageUrl: st.articles[i].urlToImage,
-                buttons: [
-                  {
-                    title: st.articles[i].title,
-                    type: 'web_url',
-                    value: st.articles[i].url
-                  }
-                ]
-              })
+        for (i=0; i < st.totalResults; i++)
+          stiriText.push({
+            title: st.articles[i].source.name,
+            imageUrl: st.articles[i].urlToImage,
+            buttons: [{
+              title: st.articles[i].title,
+              type: 'web_url',
+              value: st.articles[i].url
+            }]
+          })
+        
          res.send({
           replies: [{
             type: 'carousel',
