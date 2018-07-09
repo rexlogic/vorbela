@@ -33,6 +33,7 @@ app.post('/stiri', (req, res) => {
     catTextraw = ' generale '
   }
   else {
+    console.log(req.body.nlp.entities.stiridin_ro[0])
     if (req.body.nlp.entities.stiridin_ro[0].value == 'sport' || req.body.nlp.entities.stiridin_ro[0].value == 'sportive') {
         catText = 'sports'
         catTextraw = ' din sport '
