@@ -1,8 +1,8 @@
 # Vorbela webhooks
 
-- meteo
-- știri
-- horoscop
+- /meteo
+- /știri
+- /horoscop
 
 <!--
 <a href="https://heroku.com/deploy?template=https://github.com/rexlogic/vremea">
