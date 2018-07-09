@@ -47,7 +47,7 @@ app.post('/mate', (req, res) => {
         res.send({
           replies: [{
             type: 'text',
-            content: 'Nu pot să calculez asta.',
+            content: 'Nu pot să calculez asta.' + mat.error,
           }], 
           conversation: {
             memory: { key: 'value' }
