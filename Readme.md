@@ -1,7 +1,7 @@
 # Vorbela webhooks
 
 - /meteo
-- /știri
+- /stiri
 - /horoscop
 
 <!--
