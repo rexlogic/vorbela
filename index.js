@@ -15,15 +15,15 @@ app.post('/data', (req, res) => {
   console.log(req.body)
   datef.i18n = {
     dayNames: [
-        'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
-        'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+        'dum.', 'lun.', 'mar.', 'mie.', 'joi', 'vin.', 'sâm.',
+        'duminică', 'luni', 'marți', 'miercuri', 'joi', 'vineri', 'sâmbătă'
     ],
     monthNames: [
-        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+        'Ian.', 'Feb.', 'Mar.', 'Apr.', 'Mai', 'Iun.', 'Iul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.',
+        'ianuarie', 'februarie', 'martie', 'aprilie', 'mai', 'iunie', 'iulie', 'august', 'septembrie', 'octombrie', 'noiembrie', 'decembrie'
     ],
     timeNames: [
-        'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+        'dimineața', 'după-amiaza', 'am', 'pm', 'ante-meridian', 'post-meridian', 'AM', 'PM'
     ]
   }
   
@@ -49,7 +49,7 @@ app.post('/data', (req, res) => {
         res.send({
           replies: [{
             type: 'text',
-            content: 'Data de zi este ' + datazi + '**' + datef(datazi, 'dddd, d mmmm yyyy'),
+            content: 'Azi este ' + datef(datazi, 'dddd, d mmmm yyyy'),
           }], 
           conversation: {
             memory: { key: 'value' }
