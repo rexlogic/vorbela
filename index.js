@@ -49,7 +49,7 @@ app.post('/data', (req, res) => {
         res.send({
           replies: [{
             type: 'text',
-            content: 'Azi este ' + datef(datazi, 'dddd, d mmmm yyyy'),
+            content: 'Azi este ' + datef(datazi, 'dddd, d mmmm yyyy') +'. Este ora ' + datef(datazi, 'H') + ' și ' + datef(datazi, 'M') + ' minute.',
           }], 
           conversation: {
             memory: { key: 'value' }
