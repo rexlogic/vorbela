@@ -5,7 +5,7 @@
 - /data si ora (<a href="https://timezonedb.com/">TimeZoneDB</a>)
 <hr />
 © 2018, REXLOGIC. Licența MIT.
-<br />
+<br /><br />
 
 <a href="https://heroku.com/deploy?template=https://github.com/rexlogic/vremea">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
