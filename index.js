@@ -58,7 +58,7 @@ app.post('/zodiac', (req, res) => {
     }
   })
   console.log('Data Zi = ' + datazi)
-  let url = encodeURI('https://horoscop.ournet.ro/api/reports.json?client=vorbela&period=D' + '20180709')
+  url = encodeURI('https://horoscop.ournet.ro/api/reports.json?client=vorbela&period=D' + '20180709')
   console.log(url)
   console.log(req.body.nlp.entities)
   request(url, function (err, response, body) {
