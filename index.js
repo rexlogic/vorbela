@@ -53,6 +53,7 @@ app.post('/stiri', (req, res) => {
       } else {
         let stiriText = []
         for (i=0; i < st.totalResults; i++)
+          if (st.articles[i].urlToImage != null) {
           stiriText.push({
             title: st.articles[i].source.name,
             imageUrl: st.articles[i].urlToImage,
@@ -61,7 +62,17 @@ app.post('/stiri', (req, res) => {
               type: 'web_url',
               value: st.articles[i].url
             }]
-          })
+          })}
+        
+        res.send({
+          replies: [{
+            type: 'text',
+            content: 'Iată știrile de azi:',
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })
         
          res.send({
           replies: [{
