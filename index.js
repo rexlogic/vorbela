@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const datef = require('dateformat')
+const math = require('mathjs')
 const app = express()
 
 app.use(bodyParser.json())
@@ -9,6 +10,52 @@ app.set('port', (process.env.PORT || 5000))
 
 app.get('/', function (req, res) {
   res.send('<!DOCTYPE html><html><head><title>Vorbela webhooks</title></head><body bgcolor="#ccddff"><div style="font-weight:bold; text-align:center;">VORBELA</div></body></html>')
+})
+
+app.post('/mate', (req, res) => {
+  console.log(req.body)
+  let rez = 0
+  let urlm = encodeURI('http://api.mathjs.org/v4/?expr=' + JSON.stringify({  "expr": "' + '3+4' + '", "precision": 2  }))
+  request(urlm, function (err, response, body) {
+    if(err){
+       res.send({
+          replies: [{
+            type: 'text',
+            content: 'Nu știu matematică acum.',
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })
+    } else {
+      let mat = JSON.parse(body)
+      if(mat.error === 'null'){
+        console.log('Calculat')
+        console.log(urlm)
+        rez = mat.result
+        res.send({
+          replies: [{
+            type: 'text',
+            content: 'Rezultatul este ' + rez + '.',
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })
+      } else {
+        console.log('Math API error.')
+        res.send({
+          replies: [{
+            type: 'text',
+            content: 'Nu pot să calculez asta.',
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })
+      }
+    }
+  })
 })
 
 app.post('/data', (req, res) => {
