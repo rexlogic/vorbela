@@ -85,7 +85,7 @@ app.post('/zodiac', (req, res) => {
           }
         })
       } else {
-        let horoText = hor.data.reports[zod].text
+        let horoText = hor.data.reports[0].text
         
         res.send({
           replies: [
