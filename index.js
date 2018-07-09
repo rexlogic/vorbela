@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
+const date = require('date-and-time')
 const app = express()
 
 app.use(bodyParser.json())
@@ -12,7 +13,8 @@ app.get('/', function (req, res) {
 
 app.post('/data', (req, res) => {
   console.log(req.body)
-
+  date.locale('ro')
+  
   let datazi = ''
   let urlt = encodeURI('http://api.timezonedb.com/v2/get-time-zone?key=' + process.env.TZD_APIK + '&format=json&by=zone&zone=Europe/Bucharest')
   request(urlt, function (err, response, body) {
@@ -32,10 +34,11 @@ app.post('/data', (req, res) => {
         console.log('OK')
         console.log(urlt)
         datazi = dat.formatted
+        //date.format(datazi, 'ddd, DD MMM YYYY')
         res.send({
           replies: [{
             type: 'text',
-            content: 'Data de zi este ' + datazi,
+            content: 'Data de zi este ' + datazi + '**' + date.format(datazi, 'ddd, DD MMM YYYY'),
           }], 
           conversation: {
             memory: { key: 'value' }
