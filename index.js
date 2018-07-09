@@ -30,7 +30,7 @@ app.post('/zodiac', (req, res) => {
       }
     }
   })
-  console.log(datazi + ' *** xxx')
+  console.log(datazi + ' ggg')
 })
 
 app.post('/stiri', (req, res) => {
