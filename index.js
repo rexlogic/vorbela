@@ -65,9 +65,14 @@ app.post('/stiri', (req, res) => {
           })}
         
         res.send({
-          replies: [{
+          replies: [
+            {
             type: 'text',
             content: 'Iată știrile de azi:',
+          },
+                    {
+            type: 'carousel',
+            content: stiriText
           }], 
           conversation: {
             memory: { key: 'value' }
