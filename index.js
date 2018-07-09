@@ -54,13 +54,14 @@ app.post('/stiri', (req, res) => {
         let stiriText = st.articles[0].source.name + ' scrie ' +  '<a href="' + st.articles[0].url + '" target="_blank">' + st.articles[0].title + '</a>'
          res.send({
           replies: [{
-            type: 'quickReplies',
+            type: 'buttons',
             content: {
               title: st.articles[0].source.name,
-               buttons: [{
-                 title: st.articles[0].title,
-                 value: st.articles[0].url
-               }]
+              buttons: [{
+                title: st.articles[0].title,
+                type: 'button',
+                value: st.articles[0].url
+              }]
             },
           }], 
           conversation: {
