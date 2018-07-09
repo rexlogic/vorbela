@@ -55,7 +55,15 @@ app.post('/stiri', (req, res) => {
          res.send({
           replies: [{
             type: 'text',
-            content: stiriText,
+            content: {
+    title: st.articles[0].source.name,
+    buttons: [
+      {
+        title: st.articles[0].title,
+        value: st.articles[0].url
+      }
+    ]
+  },
           }], 
           conversation: {
             memory: { key: 'value' }
