@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
-const date = require('date-and-time')
+const date = require('dateformat')
 const app = express()
 
 app.use(bodyParser.json())
@@ -13,7 +13,19 @@ app.get('/', function (req, res) {
 
 app.post('/data', (req, res) => {
   console.log(req.body)
-  date.locale('ro')
+  date.i18n = {
+    dayNames: [
+        'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
+        'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+    ],
+    monthNames: [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+    ],
+    timeNames: [
+        'a', 'p', 'am', 'pm', 'A', 'P', 'AM', 'PM'
+    ]
+  }
   
   let datazi = ''
   let urlt = encodeURI('http://api.timezonedb.com/v2/get-time-zone?key=' + process.env.TZD_APIK + '&format=json&by=zone&zone=Europe/Bucharest')
@@ -38,7 +50,7 @@ app.post('/data', (req, res) => {
         res.send({
           replies: [{
             type: 'text',
-            content: 'Data de zi este ' + datazi + '**' + date.format(datazi, 'ddd, DD MMM YYYY'),
+            content: 'Data de zi este ' + datazi + '**' + dateFormat(datazi, 'dddd, d mmmm yyyy'),
           }], 
           conversation: {
             memory: { key: 'value' }
