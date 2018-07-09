@@ -55,22 +55,30 @@ app.post('/stiri', (req, res) => {
          res.send({
           replies: [{
             type: 'carousel',
-            content: {
-              title: st.articles[0].source.name,
-              imageUrl: st.articles[0].urlToImage,
-              buttons: [
-                {
-                  title: st.articles[0].title,
-                  type: 'web_url',
-                  value: st.articles[0].url
-                },
-                {
-                  title: st.articles[1].title,
-                  type: 'web_url',
-                  value: st.articles[1].url
-                }
-              ]
-            },
+            content: [
+              {
+                title: st.articles[0].source.name,
+                imageUrl: st.articles[0].urlToImage,
+                buttons: [
+                  {
+                    title: st.articles[0].title,
+                    type: 'web_url',
+                    value: st.articles[0].url
+                  }
+                ]
+              },
+              {
+                title: st.articles[1].source.name,
+                imageUrl: st.articles[1].urlToImage,
+                buttons: [
+                  {
+                    title: st.articles[1].title,
+                    type: 'web_url',
+                    value: st.articles[1].url
+                  }
+                ]
+              }  
+            ]
           }], 
           conversation: {
             memory: { key: 'value' }
