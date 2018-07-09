@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
 app.post('/mate', (req, res) => {
   console.log(req.body)
   let rez = 0
-  let urlm = encodeURI('http://api.mathjs.org/v4/?query=' + JSON.stringify({  "expr": "' + '3+4' + '", "precision": 2  }))
+  let urlm = encodeURI('http://api.mathjs.org/v4/?' + JSON.stringify({  "expr": "' + '3+4' + '", "precision": 2  }))
   request(urlm, function (err, response, body) {
     if(err){
        res.send({
