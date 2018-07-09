@@ -54,8 +54,14 @@ app.post('/stiri', (req, res) => {
         let stiriText = st.articles[0].source.name + ' scrie ' +  '<a href="' + st.articles[0].url + '" target="_blank">' + st.articles[0].title + '</a>'
          res.send({
           replies: [{
-            type: 'text',
-            content: stiriText,
+            type: 'quickReplies',
+            content: {
+              title: st.articles[0].source.name,
+               buttons: [{
+                 title: st.articles[0].title,
+                 value: st.articles[0].url
+               }]
+            },
           }], 
           conversation: {
             memory: { key: 'value' }
