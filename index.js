@@ -43,7 +43,6 @@ app.post('/zodiac', (req, res) => {
     }
   }
 
-  let datazi = new Date()
   let urlt = encodeURI('http://api.timezonedb.com/v2/get-time-zone?key=' + process.env.TZD_APIK + '&format=json&by=zone&zone=Europe/Bucharest')
   request(urlt, function (err, response, body) {
     if(err){
