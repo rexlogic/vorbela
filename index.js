@@ -51,13 +51,14 @@ app.post('/zodiac', (req, res) => {
     } else {
       let dat = JSON.parse(body)
       if(dat.status === 'OK'){
-        datazi = (dat.formatted.slice(0, dat.formatted.indexOf(' '))).replace('-', '')   
+        datazi = dat.formatted
       } else {
         console.log('Date-time API error.')
       }
     }
   })
   console.log('Data Zi = ' + datazi)
+  
   url = encodeURI('https://horoscop.ournet.ro/api/reports.json?client=vorbela&period=D' + '20180709')
   console.log(url)
   console.log(req.body.nlp.entities)
