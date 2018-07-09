@@ -24,12 +24,13 @@ app.post('/zodiac', (req, res) => {
         console.log('OK')
         console.log(urlt)
         datazi = dat.formatted
+        console.log(dat.formatted)
       } else {
         console.log('Date-time API error.')
       }
     }
   })
-  console.log(datazi)
+  
 })
 
 app.post('/stiri', (req, res) => {
