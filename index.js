@@ -29,7 +29,7 @@ app.post('/zodiac', (req, res) => {
       }
     }
   })
-  console.log('Data Zi = ' + datazi)
+  console.log(datazi)
 })
 
 app.post('/stiri', (req, res) => {
