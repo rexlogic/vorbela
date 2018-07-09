@@ -4,7 +4,7 @@
 - /stiri (furnizate de <a href="https://newsapi.org">News API</a>)
 - /data si ora (<a href="https://timezonedb.com/">TimeZoneDB</a>)
 <hr />
-© 2018, REXLOGIC. Licența MIT.
+© 2018, REXLOGIC. Licența <a href="https://opensource.org/licenses/MIT">MIT</a>.
 <br /><br />
 
 <a href="https://heroku.com/deploy?template=https://github.com/rexlogic/vremea">
