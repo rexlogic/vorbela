@@ -51,18 +51,11 @@ app.post('/stiri', (req, res) => {
           }
         })
       } else {
-        let stiriText = st.articles[0].source.name + ' scrie ' +  '<a href="' + st.articles[0].url + '" target="_blank">' + st.articles[0].title + '</a>'
+        let stiriText = st.articles[0].source.name + ' scrie ' + st.articles[0].url + st.articles[0].title
          res.send({
           replies: [{
-            type: 'buttons',
-            content: {
-              title: st.articles[0].source.name,
-              buttons: [{
-                title: st.articles[0].title,
-                type: 'button',
-                value: st.articles[0].url
-              }]
-            },
+            type: 'text',
+            content: stiriText,
           }], 
           conversation: {
             memory: { key: 'value' }
