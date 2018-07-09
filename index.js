@@ -51,7 +51,7 @@ app.post('/stiri', (req, res) => {
           }
         })
       } else {
-        let stiriText = st.articles[0].source.name + ' scrie ' + st.articles[0].title
+        let stiriText = st.articles[0].source.name + ' scrie ' +  '<a href="' + st.articles[0].url + '" target="_blank">' + st.articles[0].title + '</a>'
          res.send({
           replies: [{
             type: 'text',
