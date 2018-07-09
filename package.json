@@ -10,11 +10,17 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "bluebird": "^3.4.6",
+    "node-fetch": "^2.1.1",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "request": "^2.81.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "dotenv": "^5.0.0",
+    "mocha": "^3.1.2",
+    "should": "^11.1.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rexlogic/vorbela.git"
