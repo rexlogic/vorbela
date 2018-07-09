@@ -46,11 +46,10 @@ app.post('/data', (req, res) => {
         console.log('OK')
         console.log(urlt)
         datazi = dat.formatted
-        //date.format(datazi, 'ddd, DD MMM YYYY')
         res.send({
           replies: [{
             type: 'text',
-            content: 'Data de zi este ' + datazi + '**' + dateFormat(datazi, 'dddd, d mmmm yyyy'),
+            content: 'Data de zi este ' + datazi + '**' + dateformat(datazi, 'dddd, d mmmm yyyy'),
           }], 
           conversation: {
             memory: { key: 'value' }
