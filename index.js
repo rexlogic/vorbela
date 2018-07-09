@@ -52,6 +52,7 @@ app.post('/zodiac', (req, res) => {
       let dat = JSON.parse(body)
       if(dat.status === 'OK'){
         console.log('OK')
+        console.log(url)
         datazi = dat.formatted
       } else {
         console.log('Date-time API error.')
