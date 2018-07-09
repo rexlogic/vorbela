@@ -10,27 +10,51 @@ app.get('/', function (req, res) {
   res.send('<!DOCTYPE html><html><head><title>Vorbela webhooks</title></head><body bgcolor="#ccddff"><div style="font-weight:bold; text-align:center;">VORBELA</div></body></html>')
 })
 
-app.post('/zodiac', (req, res) => {
+app.post('/data', (req, res) => {
   console.log(req.body)
 
   let datazi = ''
   let urlt = encodeURI('http://api.timezonedb.com/v2/get-time-zone?key=' + process.env.TZD_APIK + '&format=json&by=zone&zone=Europe/Bucharest')
   request(urlt, function (err, response, body) {
     if(err){
-      console.log('Date-time API unreachable.')
+       res.send({
+          replies: [{
+            type: 'text',
+            content: 'Nu știu ce zi e azi.',
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })
     } else {
       let dat = JSON.parse(body)
       if(dat.status === 'OK'){
         console.log('OK')
         console.log(urlt)
         datazi = dat.formatted
-        console.log(datazi + ' *** ' + dat.formatted)
+        res.send({
+          replies: [{
+            type: 'text',
+            content: 'Data de zi este ' + datazi,
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })
       } else {
         console.log('Date-time API error.')
+        res.send({
+          replies: [{
+            type: 'text',
+            content: 'Nu știu data de azi.',
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })
       }
     }
   })
-  console.log(datazi + ' ggg')
 })
 
 app.post('/stiri', (req, res) => {
