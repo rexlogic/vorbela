@@ -25,32 +25,45 @@ app.post('/zodiac', (req, res) => {
 
 app.post('/stiri', (req, res) => {
   console.log(req.body)
-  require('dotenv').config();
-  let should = require('should')
-  let NewsAPI = require('./news.js');
-  
-  if (!process.env.NEW_APIK) throw new Error('No news API Key specified.');
-  let newsapi = new NewsAPI(process.env.NEW_APIK);
-
-      it('Should return "ok" and a list of top headlines', function (done) {
-        newsapi.v2.topHeadlines({
-          language: 'ro'
-        }).then(resp => {
-          resp.status.should.equal('ok')
-          should.exist(resp.articles)
-          let textStiri = resp.articles[0].title
-          done()
-        }).catch(done)
-  
-  res.send({
-   replies: [{
-     type: 'text',
-     content: textStiri,
-   }], 
-   conversation: {
-    memory: { key: 'value' }
-   }
-  })
+  let url = encodeURI('https://newsapi.org/v2/top-headlines?country=ro&apiKey='+ process.env.NEW_APIK)
+  console.log(url)
+  request(url, function (err, response, body) {
+    if(err){
+        res.send({
+          replies: [{
+            type: 'text',
+            content: 'Nu pot afla știrile de azi.',
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })
+    } else {
+      let st = JSON.parse(body)
+      if(st.status != 'ok'){
+        res.send({
+          replies: [{
+            type: 'text',
+            content: 'Nicio știre azi.',
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })
+      } else {
+        let stiriText = st.articles[0].title
+         res.send({
+          replies: [{
+            type: 'text',
+            content: stiriText,
+          }], 
+          conversation: {
+            memory: { key: 'value' }
+          }
+        })      
+      }
+    }
+})
 })
 
 app.post('/meteo', (req, res) => {
