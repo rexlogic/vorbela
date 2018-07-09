@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
+const date = require('date-and-time')
 const app = express()
 
 app.use(bodyParser.json())
@@ -42,7 +43,23 @@ app.post('/zodiac', (req, res) => {
         zodTextraw = ' Leu '
     }
   }
-  let url = encodeURI('https://horoscop.ournet.ro/api/reports.json?client=vorbela&period=D' + )
+
+  let datazi = new Date()
+  let url = encodeURI('http://api.timezonedb.com/v2/get-time-zone?key=' + process.env.TZD_APIK + '&format=json&by=zone&zone=Europe/Bucharest')
+  request(url, function (err, response, body) {
+    if(err){
+      console.log('Date-time API unreachable.')
+    } else {
+      let dat = JSON.parse(body)
+      if(dat.status === 'OK'){
+        datazi = (dat.formatted.slice(0, dat.formatted.indexOf(' '))).replace('-', '')   
+      } else {
+        console.log('Date-time API error.')
+      }
+    }
+  })
+  console.log('Data Zi = ' + datazi)
+  let url = encodeURI('https://horoscop.ournet.ro/api/reports.json?client=vorbela&period=D' + '20180709')
   console.log(url)
   console.log(req.body.nlp.entities)
   request(url, function (err, response, body) {
