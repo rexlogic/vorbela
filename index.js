@@ -25,7 +25,21 @@ app.post('/zodiac', (req, res) => {
 
 app.post('/stiri', (req, res) => {
   console.log(req.body)
-  let url = encodeURI('https://newsapi.org/v2/top-headlines?country=ro&category=sports&apiKey='+ process.env.NEW_APIK)
+  let catText = ''
+  let catTextraw = ''
+  if (req.body.nlp.entities.stiridin_ro === undefined) {
+    console.log('categorie nedefinita')
+    catText = ''
+    catTextraw = ' generale '
+  }
+  else {
+    console.log(req.body.nlp.entities.stiridin_ro[0])
+    if (req.body.nlp.entities.stiridin_ro[0].value == 'sport' || req.body.nlp.entities.stiridin_ro[0].value == 'sportive') {
+        catText = 'sports'
+        catTextraw = ' din sport '
+        }
+  }
+  let url = encodeURI('https://newsapi.org/v2/top-headlines?country=ro&category=' + catText + '&apiKey='+ process.env.NEW_APIK)
   console.log(url)
   console.log(req.body.nlp.entities)
   request(url, function (err, response, body) {
@@ -69,7 +83,7 @@ app.post('/stiri', (req, res) => {
           replies: [
             {
               type: 'text',
-              content: 'Iată știrile de azi:',
+              content: 'Iată știrile' + catTextraw + 'de azi:',
             },
             {
               type: 'carousel',
