@@ -54,17 +54,23 @@ app.post('/stiri', (req, res) => {
         let stiriText = st.articles[0].source.name + ' scrie ' + st.articles[0].url + st.articles[0].title
          res.send({
           replies: [{
-            type: 'buttons',
+            type: 'carousel',
             content: {
-    title: st.articles[0].source.name,
-    buttons: [
-      {
-        title: st.articles[0].title,
-        type: 'web_url',
-        value: st.articles[0].url
-      }
-    ]
-  },
+              title: st.articles[0].source.name,
+              imageUrl: st.articles[0].urlToImage,
+              buttons: [
+                {
+                  title: st.articles[0].title,
+                  type: 'web_url',
+                  value: st.articles[0].url
+                },
+                {
+                  title: st.articles[1].title,
+                  type: 'web_url',
+                  value: st.articles[1].url
+                }
+              ]
+            },
           }], 
           conversation: {
             memory: { key: 'value' }
