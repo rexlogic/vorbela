@@ -31,111 +31,18 @@ app.post('/stiri', (req, res) => {
   
   if (!process.env.NEW_APIK) throw new Error('No news API Key specified.');
   let newsapi = new NewsAPI(process.env.NEW_APIK);
-  
-  describe('NewsAPI', function () {
-  describe('V2', function () {
-    describe('sources', function () {
-      it('Should return "ok" and a list of sources', function (done) {
-        newsapi.v2.sources().then(res => {
-          res.status.should.equal('ok');
-          should.exist(res.sources);
-          done();
-        }).catch(done);
-      });
-    });
-
-    describe('top-headlines', function () {
-      it('Should return "ok" and a list of top headlines', function (done) {
-        newsapi.v2.topHeadlines({
-          language: 'en'
-        }).then(res => {
-          res.status.should.equal('ok');
-          should.exist(res.articles);
-          done();
-        }).catch(done);
-      });
-
-      it('Should return "ok" and a list of top headlines using a callback', function (done) {
-        newsapi.v2.topHeadlines({
-          language: 'en'
-        }, (err, res) => {
-          if (err) {
-            return done(err);
-          }
-          res.status.should.equal('ok');
-          should.exist(res.articles);
-          done();
-        });
-      });
-
-      it('Should default to english language if no options are provided and return a list of top headlines', function (done) {
-        newsapi.v2.topHeadlines().then(res => {
-          res.status.should.equal('ok');
-          should.exist(res.articles);
-          done();
-        }).catch(done);
-      });
-
-      it('Should throw an error if all required params are missing', function (done) {
-        newsapi.v2.topHeadlines({})
-          .then(res => {
-            done(new Error('This should have thrown an error'));
-          })
-          .catch((err) => {
-            done();
-          });
-      });
-    });
-
-    describe('everything', function () {
-      it('Should return "ok" and a list of articles', function (done) {
-        newsapi.v2.everything({
-          sources: 'bbc-news'
-        }).then(res => {
-          res.status.should.equal('ok');
-          should.exist(res.articles);
-          done();
-        }).catch(done);
-      });
-
-      it('Should not cache results if noCache is on', function (done) {
-        newsapi.v2.everything({
-          sources: 'bbc-news'
-        }, {
-          noCache: true,
-          showHeaders: true
-        }).then(res => {
-          res.headers.get('x-cached-result').should.equal('false');
-          res.body.status.should.equal('ok');
-          should.exist(res.body.articles);
-          done();
-        }).catch(done);
-      });
-
-      it('Should throw an error if all required params are missing', function (done) {
-        newsapi.v2.everything({})
-          .then(res => {
-            done(new Error('This should have thrown an error'));
-          })
-          .catch((err) => {
-            done();
-          });
-      });
-    });
-  });
-});
-  
+   
   newsapi.v2.topHeadlines({
           language: 'ro'
         }, (err, res) => {
           if (err) {
-            return done(err);
+            return done(err)
           }
-          res.status.should.equal('ok');
-          should.exist(res.articles);
-          let textStiri = res.articles[0].title;
-          done();
-  });
+          res.status.should.equal('ok')
+          should.exist(res.articles)
+          let textStiri = res.articles[0].title
+          done()
+  })
   
   res.send({
    replies: [{
