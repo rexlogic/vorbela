@@ -25,7 +25,7 @@ app.post('/zodiac', (req, res) => {
 
 app.post('/stiri', (req, res) => {
   console.log(req.body)
-  
+  require('dotenv').config();
   let should = require('should')
   let NewsAPI = require('news.js');
   
