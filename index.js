@@ -24,7 +24,7 @@ app.post('/zodiac', (req, res) => {
         console.log('OK')
         console.log(urlt)
         datazi = dat.formatted
-        console.log(dat.formatted)
+        console.log(datazi + ' *** ' + dat.formatted)
       } else {
         console.log('Date-time API error.')
       }
