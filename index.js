@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
-const date = require('dateformat')
+const datef = require('dateformat')
 const app = express()
 
 app.use(bodyParser.json())
@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 
 app.post('/data', (req, res) => {
   console.log(req.body)
-  date.i18n = {
+  datef.i18n = {
     dayNames: [
         'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat',
         'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
@@ -49,7 +49,7 @@ app.post('/data', (req, res) => {
         res.send({
           replies: [{
             type: 'text',
-            content: 'Data de zi este ' + datazi + '**' + dateformat(datazi, 'dddd, d mmmm yyyy'),
+            content: 'Data de zi este ' + datazi + '**' + datef(datazi, 'dddd, d mmmm yyyy'),
           }], 
           conversation: {
             memory: { key: 'value' }
