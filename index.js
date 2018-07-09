@@ -51,34 +51,23 @@ app.post('/stiri', (req, res) => {
           }
         })
       } else {
-        let stiriText = st.articles[0].source.name + ' scrie ' + st.articles[0].url + st.articles[0].title
+        let stiriText = []
+        for (i=0; i<st.totalResults, i++)
+        stiriText.push({
+                title: st.articles[i].source.name,
+                imageUrl: st.articles[i].urlToImage,
+                buttons: [
+                  {
+                    title: st.articles[i].title,
+                    type: 'web_url',
+                    value: st.articles[i].url
+                  }
+                ]
+              })
          res.send({
           replies: [{
             type: 'carousel',
-            content: [
-              {
-                title: st.articles[0].source.name,
-                imageUrl: st.articles[0].urlToImage,
-                buttons: [
-                  {
-                    title: st.articles[0].title,
-                    type: 'web_url',
-                    value: st.articles[0].url
-                  }
-                ]
-              },
-              {
-                title: st.articles[1].source.name,
-                imageUrl: st.articles[1].urlToImage,
-                buttons: [
-                  {
-                    title: st.articles[1].title,
-                    type: 'web_url',
-                    value: st.articles[1].url
-                  }
-                ]
-              }  
-            ]
+            content: stiriText
           }], 
           conversation: {
             memory: { key: 'value' }
