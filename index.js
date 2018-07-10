@@ -18,10 +18,10 @@ app.post('/mate', (req, res) => {
   let optionm = {
     url: 'http://api.mathjs.org/v4/',
     method: 'POST',
-    json: JSON.stringify({
+    json: {
       "expr": "2 + 4.5",
       "precision": "2"
-    })
+    }
   }
   let urlm = encodeURI(optionm)
   request(urlm, function (err, response, body) {
