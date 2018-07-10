@@ -24,7 +24,7 @@ app.post('/mate', (req, res) => {
     }
   }
   //let urlm = encodeURI('http://api.mathjs.org/v4/' + '{"expr": "2 + 4.5","precision": 2}')
-  request.post({uri: 'http://api.mathjs.org/v4/', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({"expr": "2 + 4.5"})}, function (err, response, body) {
+  request.post(encodeURI({uri: 'http://api.mathjs.org/v4/', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({"expr": "2 + 4.5"})}), function (err, response, body) {
     if(err){
        res.send({
           replies: [{
