@@ -16,6 +16,14 @@ app.post('/mate', (req, res) => {
   console.log(req.body)
   let rez = 0
   let urlm = encodeURI('http://api.mathjs.org/v4/?expr=') + encodeURIComponent('0+0')
+  if (req.body.nlp.entities.math_ro === undefined) {
+    console.log('expresie nedefinita')
+    urlm = encodeURI('http://api.mathjs.org/v4/?expr=') + encodeURIComponent('0+0')
+  } else {
+    console.log(req.body.nlp.entities.math_ro[0])
+    urlm = encodeURI('http://api.mathjs.org/v4/?expr=') + encodeURIComponent(req.body.nlp.entities.math_ro[0].value)
+  }
+
   console.log(urlm)
   request(urlm, function (err, response, body) {
     if(err){
