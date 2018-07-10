@@ -43,7 +43,7 @@ app.post('/mate', (req, res) => {
         res.send({
           replies: [{
             type: 'text',
-            content: 'Rezultatul este ' + rez + '.',
+            content: 'Rezultatul este ' + rez.replace('.', ',') + '.',
           }], 
           conversation: {
             memory: { key: 'value' }
