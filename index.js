@@ -29,8 +29,8 @@ app.post('/mate', (req, res) => {
           }
         })
     } else {
-      let rez = JSON.parse(body)
-      if(rez.indexOf('Error') != -1){
+      let rez = body
+      if(rez.indexOf('Error') != 0){
         console.log('Calculat')
         res.send({
           replies: [{
