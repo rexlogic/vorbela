@@ -15,8 +15,8 @@ app.get('/', function (req, res) {
 app.post('/mate', (req, res) => {
   console.log(req.body)
   let rez = 0
-  let expr = encodeURIComponent('0+0')
-  let urlm = encodeURI('http://api.mathjs.org/v4/?expr=' + expr)
+  let expr = 
+  let urlm = encodeURI('http://api.mathjs.org/v4/?expr=') + encodeURIComponent('0+0')
   console.log(urlm)
   request(urlm, function (err, response, body) {
     if(err){
