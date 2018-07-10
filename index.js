@@ -15,15 +15,8 @@ app.get('/', function (req, res) {
 app.post('/mate', (req, res) => {
   console.log(req.body)
   let rez = 0
-  let optionm = {
-    url: 'http://api.mathjs.org/v4/',
-    method: 'POST',
-    json: {
-      "expr": "2 + 4.5",
-      "precision": "2"
-    }
-  }
-  let urlm = encodeURI(optionm)
+  let expr = '0+0'
+  let urlm = encodeURI('http://api.mathjs.org/v4/?expr=' + expr)
   request(urlm, function (err, response, body) {
     if(err){
        res.send({
@@ -36,11 +29,9 @@ app.post('/mate', (req, res) => {
           }
         })
     } else {
-      let mat = JSON.parse(body)
-      if(mat.error === 'null'){
+      let rez = JSON.parse(body)
+      if(rez.indexOf('Error') != -1){
         console.log('Calculat')
-        console.log(urlm)
-        rez = mat.result
         res.send({
           replies: [{
             type: 'text',
@@ -55,7 +46,7 @@ app.post('/mate', (req, res) => {
         res.send({
           replies: [{
             type: 'text',
-            content: 'Nu pot să calculez asta.' + mat.error,
+            content: 'Nu pot să calculez asta.',
           }], 
           conversation: {
             memory: { key: 'value' }
