@@ -1,6 +1,6 @@
 # Vorbela webhooks
 
-O aplicație Node.js pentru a fi utilizată de către boți de limba română bazați pe Recast.ai.
+O aplicație Node.js pentru a fi utilizată de către boți de limba română bazați pe [https://recast.ai/]Recast.ai.
 
 ## Introducere
 
@@ -43,7 +43,7 @@ Exemplu răspuns
 
 ## Licență
 
-Licența este <a href="https://opensource.org/licenses/MIT">MIT</a>. Vezi detaliile în [LICENSE.md](LICENSE.md).
+Licența este <a href="https://opensource.org/licenses/MIT">MIT</a>. Vezi detaliile în [https://github.com/rexlogic/vorbela/blob/master/LICENSE](LICENSE.md).
 
 ## Aprecieri
 
