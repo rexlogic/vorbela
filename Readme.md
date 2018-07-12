@@ -17,7 +17,7 @@ Un bot pentru conversație în limba română.
 
 ## Utilizare
 
-Pentru utilizare neabuzivă și adecvată în termenii licenței, aplicația poate fi apelată de boți folosind următorul URL de bază:  http://vorbela.herokuapp.com, iar oricare din rutele de mai sus ca webhook pentru acțiuni specifice. Exemplul de mai jos este informativ, utlizarea de către bot necesită doar apelarea rutei utile la instruirea acțiunii, răspunsul fiind prelucrat automat de către platformă și introdus în conversație.
+Pentru utilizare neabuzivă și adecvată în termenii licenței, aplicația poate fi apelată de boți folosind următorul URL de bază:  http://vorbela.herokuapp.com, iar oricare din rutele de mai sus ca webhook pentru acțiuni specifice. Exemplul de mai jos este informativ, utlizarea de către bot necesită doar apelarea rutei utile la instruirea acțiunii, răspunsul fiind prelucrat de către platformă și introdus în conversație.
 
 ### Exemplu
 
