@@ -39,7 +39,7 @@ Exemplu răspuns
 
 ## Autor
 
-* **REXLOGIC**
+* **[REXLOGIC](https://github.com/rexlogic/)**
 
 ## Licență
 
@@ -54,7 +54,7 @@ Aplicația folosește următoarele interfețe API:
 - /data (<a href="https://timezonedb.com/">TimeZoneDB</a>)
 - /mate (<a href="http://mathjs.org/">Math.js</a>)
 <hr />
-Aplicația rulează în platforma <a href="https://www.heroku.com/">Heroku</a>
+Aplicația rulează în platforma <a href="https://www.heroku.com/">Heroku</a>.
 <hr />
 © 2018 REXLOGIC. 
 <br /><br />
