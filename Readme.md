@@ -1,6 +1,6 @@
 # Vorbela webhooks
 
-O aplicație Node.js pentru a fi utilizată de către boți de limba română bazați pe [Recast.ai](https://recast.ai/).
+O aplicație pentru utilizare de către boți de limba română bazați pe [Recast.ai](https://recast.ai/).
 
 ## Introducere
 
@@ -17,7 +17,7 @@ Un bot pentru conversație în limba română.
 
 ## Utilizare
 
-Pentru utilizare neabuzivă și adecvată în termenii licenței, aplicația poate fi apelată de boți la [Vorbela] (http://vorbela.herokuapp.com/)
+Pentru utilizare neabuzivă și adecvată în termenii licenței, aplicația poate fi apelată de boți folosind următorul URL de bază:  http://vorbela.herokuapp.com, iar oricare din rutele de mai sus ca webhook pentru acțiuni specifice.
 
 ### Exemplu
 
