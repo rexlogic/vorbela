@@ -1,6 +1,6 @@
 # Vorbela webhooks
 
-O aplicație Node.js pentru a fi utilizată de către boți de limba română bazați pe [https://recast.ai/]Recast.ai.
+O aplicație Node.js pentru a fi utilizată de către boți de limba română bazați pe [https://recast.ai/](Recast.ai).
 
 ## Introducere
 
