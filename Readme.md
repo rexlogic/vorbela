@@ -4,7 +4,7 @@ O aplicație pentru testarea boților de limba română instruiți în [Recast.a
 
 ## Introducere
 
-Aplicația este utilă pentru instruirea acțiunilor webhook ale boților de limba română construiți și instruiți în platforma Recast.ai (sau alta compatibilă) și implementează următoarele rute:
+Aplicația este utilă pentru realizarea acțiunilor webhook ale boților de limba română construiți și instruiți în platforma Recast.ai (sau alta compatibilă) și implementează următoarele rute:
 
 - /meteo
 - /stiri
