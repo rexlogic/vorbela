@@ -21,10 +21,10 @@ app.post('/mate', (req, res) => {
     urlm = encodeURI('http://api.mathjs.org/v4/?expr=') + encodeURIComponent('0+0')
   } else {
     console.log(req.body.nlp.entities.math_ro[0])
-    urlm = encodeURI('http://api.mathjs.org/v4/?expr=') + encodeURIComponent((req.body.nlp.entities.math_ro[0].value.replace(/,/g, '.')).replace(/x/g, '*')) + '&precision=3'
+    urlm = encodeURI('http://api.mathjs.org/v4/?expr=') + encodeURIComponent((req.body.nlp.entities.math_ro[0].value.replace(/,/g, '.')).replace(/x/g, '*') + '&precision=3')
   }
 
-  console.log(urlm)
+  console.log(urlm)+ '&precision=3'
   request(urlm, function (err, response, body) {
     if(err){
        res.send({
