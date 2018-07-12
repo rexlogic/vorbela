@@ -27,14 +27,13 @@ Apelare (JSON trimis de bot către aplicație pentru acțiunea care solicită da
 { nlp:
 	{ ...
 		source: 'Cât e ceasul?',
-		intents: [ [Object] ],
    	  ...
 		language: 'ro',
-		processing_language: 'ro',
-		status: 200 },
-  action_id: ...
+	  ...
+	},
+  ...
   conversation: 
-	{	id: '...',
+	{
   	  ...
 		language: 'ro',
  	  ...
@@ -49,13 +48,10 @@ Răspuns (JSON trimis de aplicație către bot ca răspuns la solicitarea datei 
 ```
 { replies:
    [{
-     type: 'text',
+     ...
      content: 'Azi este joi, 12 iulie 2018. Acum este ora 6 și 44 minute.',
    }], 
-  conversation:
-   {
-     memory: { key: 'value' }
-   }
+  ...
 }
 ```
 
