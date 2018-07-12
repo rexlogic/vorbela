@@ -1,6 +1,6 @@
 # Vorbela webhooks
 
-O aplicație pentru utilizare de către boți de limba română bazați pe [Recast.ai](https://recast.ai/).
+O aplicație pentru testarea boților de limba română instruiți în [Recast.ai](https://recast.ai/).
 
 ## Introducere
 
