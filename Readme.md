@@ -15,10 +15,6 @@ Aplicația este utilă pentru instruirea acțiunilor webhook ale boților de lim
 
 Un bot pentru conversație în limba română.
 
-```
-Exemple
-```
-
 ## Utilizare
 
 Pentru utilizare neabuzivă și adecvată în termenii licenței, aplicația poate fi apelată de boți la http://vorbela.herokuapp.com/
@@ -27,8 +23,15 @@ Pentru utilizare neabuzivă și adecvată în termenii licenței, aplicația poa
 
 Apelare:
 
+```
+Exemplu apel
+```
+
 Răspuns:
 
+```
+Exemplu răspuns
+```
 
 ## Programare
 
