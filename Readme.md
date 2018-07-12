@@ -21,7 +21,7 @@ Pentru utilizare neabuzivă și adecvată în termenii licenței, aplicația poa
 
 ### Exemplu
 
-Apelare (JSON trimis de bot pentru acțiunea care solicită data și ora):
+Apelare (JSON trimis de bot către aplicație pentru acțiunea care solicită data și ora):
 
 ```
 { nlp:
@@ -44,10 +44,19 @@ Apelare (JSON trimis de bot pentru acțiunea care solicită data și ora):
 }
 ```
 
-Răspuns:
+Răspuns (JSON trimis de aplicație către bot ca răspuns la solicitarea datei sau orei):
 
 ```
-Exemplu răspuns
+{ replies:
+   [{
+     type: 'text',
+     content: 'Azi este joi, 12 iulie 2018. Acum este ora 6 și 44 minute.',
+   }], 
+  conversation:
+   {
+     memory: { key: 'value' }
+   }
+}
 ```
 
 ## Programare
