@@ -54,9 +54,7 @@ Aplicația folosește următoarele interfețe API:
 - /data (<a href="https://timezonedb.com/">TimeZoneDB</a>)
 - /mate (<a href="http://mathjs.org/">Math.js</a>)
 <hr />
-Aplicația rulează în platforma [Heroku](https://www.heroku.com/):
-
-- /meteo (<a href="https://openweathermap.org/">OpenWeatherMap</a>)
+Aplicația rulează în platforma <a href="https://www.heroku.com/">Heroku</a>
 <hr />
 © 2018 REXLOGIC. 
 <br /><br />
