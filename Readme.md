@@ -21,10 +21,27 @@ Pentru utilizare neabuzivă și adecvată în termenii licenței, aplicația poa
 
 ### Exemplu
 
-Apelare:
+Apelare (JSON trimis de bot pentru acțiunea care solicită data și ora):
 
 ```
-Exemplu apel
+{ nlp:
+	{ ...
+		source: 'Cât e ceasul?',
+		intents: [ [Object] ],
+   	  ...
+		language: 'ro',
+		processing_language: 'ro',
+		status: 200 },
+  action_id: ...
+  conversation: 
+	{	id: '...',
+  	  ...
+		language: 'ro',
+ 	  ...
+		skill: 'data',
+	  ...
+ 	}
+}
 ```
 
 Răspuns:
