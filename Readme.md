@@ -4,7 +4,7 @@ O aplicație pentru utilizare de către boți de limba română bazați pe [Reca
 
 ## Introducere
 
-Aplicația este utilă pentru instruirea acțiunilor webhook ale boților de limba română construiți pe platforma Recast.ai (sau compatibilă) și implementează următoarele rute:
+Aplicația este utilă pentru instruirea acțiunilor webhook ale boților de limba română construiți și instruiți în platforma Recast.ai (sau alta compatibilă) și implementează următoarele rute:
 
 - /meteo
 - /stiri
