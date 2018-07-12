@@ -37,7 +37,7 @@ app.post('/mate', (req, res) => {
           }
         })
     } else {
-      rez = body
+      rez = math.format(body, 3)
       if(rez.indexOf('Error') != 0){
         console.log('Calculat')
         res.send({
