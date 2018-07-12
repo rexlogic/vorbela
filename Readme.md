@@ -17,7 +17,7 @@ Un bot pentru conversație în limba română.
 
 ## Utilizare
 
-Pentru utilizare neabuzivă și adecvată în termenii licenței, aplicația poate fi apelată de boți la http://vorbela.herokuapp.com/
+Pentru utilizare neabuzivă și adecvată în termenii licenței, aplicația poate fi apelată de boți la [Vorbela] (http://vorbela.herokuapp.com/)
 
 ### Exemplu
 
@@ -43,7 +43,7 @@ Exemplu răspuns
 
 ## Licență
 
-Licența este <a href="https://opensource.org/licenses/MIT">MIT</a>. Vezi detaliile în [https://github.com/rexlogic/vorbela/blob/master/LICENSE](LICENSE.md).
+Licența este <a href="https://opensource.org/licenses/MIT">MIT</a>. Vezi detaliile în [LICENSE.md](https://github.com/rexlogic/vorbela/blob/master/LICENSE).
 
 ## Aprecieri
 
