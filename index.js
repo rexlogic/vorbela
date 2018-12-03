@@ -195,7 +195,15 @@ app.post('/stiri', (req, res) => {
               type: 'web_url',
               value: st.articles[i].url
             }]
-          })}
+          })} else {
+              stiriText.push({
+              title: st.articles[i].source.name,
+              imageUrl: 'https://github.com/rexlogic/vorbela/blob/master/stiri.jpg',
+              buttons: [{
+                title: st.articles[i].title,
+                type: 'web_url',
+                value: st.articles[i].url
+              }]})}
         
         res.send({
           replies: [
