@@ -157,10 +157,10 @@ app.post('/stiri', (req, res) => {
         catTextraw = ' din tehnologie '
     }
   }
-  let url = encodeURI('https://newsapi.org/v2/top-headlines?country=ro&category=' + catText + '&apiKey='+ process.env.NEW_APIK)
-  console.log(url)
+  let urls = encodeURI('https://newsapi.org/v2/top-headlines?country=ro&category=' + catText + '&apiKey='+ process.env.NEW_APIK)
+  console.log(urls)
   console.log(req.body.nlp.entities)
-  request(url, function (err, response, body) {
+  request(urls, function (err, response, body) {
     if(err){
         res.send({
           replies: [{
@@ -232,9 +232,9 @@ app.post('/meteo', (req, res) => {
     city = req.body.nlp.entities.location_ro[0].value + ',ro'
     cityraw = req.body.nlp.entities.location_ro[0].raw
   }
-  let url = encodeURI('http://api.openweathermap.org/data/2.5/weather?q='+ city + '&lang=ro&units=metric&appid=' + apiKey)
-  console.log(url)
-  request(url, function (err, response, body) {
+  let urlv = encodeURI('http://api.openweathermap.org/data/2.5/weather?q='+ city + '&lang=ro&units=metric&appid=' + apiKey)
+  console.log(urlv)
+  request(urlv, function (err, response, body) {
     if(err){
         res.send({
           replies: [{
