@@ -185,8 +185,8 @@ app.post('/stiri', (req, res) => {
         })
       } else {
         let stiriText = []
-        console.log('st.totalResults=' + st.totalResults)
-        for (var i=0; i < st.totalResults; i++) {
+        console.log('st.totalResults=' + st['articles'].length)
+        for (var i=0; i < st['articles'].length; i++) {
           console.log('st.articles[' + i + '].source.name=' + st.articles[i].source.name)
           stiriText.push({
             title: st.articles[i].source.name,
