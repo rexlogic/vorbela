@@ -276,7 +276,7 @@ app.post('/meteo', (req, res) => {
 app.post('/errors', (req, res) => {
   console.log(req.body) 
   res.send() 
-}) 
+})
 
 app.listen(app.get('port'), () => { 
   console.log('Server is running on port 5000') 
