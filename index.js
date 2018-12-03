@@ -186,7 +186,7 @@ app.post('/stiri', (req, res) => {
       } else {
         let stiriText = []
         for (i=0; i < st.totalResults; i++)
-          if (st.articles[i].urlToImage != null) {
+          if (st.articles[i].urlToImage != 'null') {
           stiriText.push({
             title: st.articles[i].source.name,
             imageUrl: st.articles[i].urlToImage,
