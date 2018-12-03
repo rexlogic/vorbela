@@ -211,7 +211,7 @@ app.post('/stiri', (req, res) => {
           conversation: {
             memory: { key: 'value' }
           }
-        })    
+        })}
       }
     }
 })
