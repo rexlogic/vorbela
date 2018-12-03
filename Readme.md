@@ -81,7 +81,7 @@ Aplicația rulează în platforma <a href="https://www.heroku.com/">Heroku</a>.
 © 2018 REXLOGIC. 
 <br /><br />
 
-
+<!--
 <a href="https://heroku.com/deploy?template=https://github.com/rexlogic/vremea">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
