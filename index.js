@@ -186,8 +186,8 @@ app.post('/stiri', (req, res) => {
       } else {
         let stiriText = []
         console.log('st.totalResults=' + st.totalResults)
-        console.log('st.articles.0.source.name=' + st.articles.0.source.name)
         for (var i=0; i < st.totalResults; i++) {
+          console.log('st.articles[' + i + '].source.name=' + st.articles[i].source.name)
           stiriText.push({
             title: st.articles[i].source.name,
             imageUrl: 'https://github.com/rexlogic/vorbela/blob/master/stiri.jpg',
