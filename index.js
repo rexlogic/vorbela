@@ -190,7 +190,7 @@ app.post('/stiri', (req, res) => {
           
           stiriText.push({
             title: st.articles[i].source.name,
-            imageUrl: ((st.articles[i].urlToImage != null) ? st.articles[i].urlToImage : 'https://github.com/rexlogic/vorbela/blob/master/stiri.jpg'),
+            imageUrl: ((st.articles[i].urlToImage != null) ? st.articles[i].urlToImage : 'https://raw.githubusercontent.com/rexlogic/vorbela/master/stiri.jpg'),
             buttons: [{
               title: st.articles[i].title,
               type: 'web_url',
